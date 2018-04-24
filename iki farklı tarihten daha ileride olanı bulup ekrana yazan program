@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <stdlib.h>
+/*üyeleri asagidaki gibi olan tarih adindaki yapiyi (struct) tanimlayiniz.
+tanimladiginiz yapi turunde ana(main) fonksiyonda klavyeden girilen iki adet
+farkli tarihren ileride olani bulup ekrana yazdiran programi yaziniz.
+üye adi                      tür
+-------                      ---
+yil                          tamsayi
+ay                           tamsayi
+gun                          tamsayi
+*/
+
+struct tarih{
+    int yil;
+    int ay;
+    int gun;
+};
+int main()
+{
+    struct tarih t1;
+    struct tarih t2;
+    struct tarih buyuk;
+
+    printf("Ilk tarihi giriniz: ");
+    scanf("%d %d %d",&t1.yil,&t1.ay,&t1.gun);
+    printf("ikinci tarihi giriniz: ");
+    scanf("%d %d %d",&t2.yil,&t2.ay,&t2.gun);
+
+    buyuk = t2;
+
+    if(t1.yil>t2.yil){
+        buyuk=t1;
+    }
+    else if(t1.yil==t2.yil&&t1.ay>t2.ay){
+        buyuk=t1;
+    }
+    else if(t1.yil==t2.yil&&t1.ay==t2.ay&&t1.gun>t2.gun){
+        buyuk=t1;
+    }
+    printf("Ileride olan tarih:%d/%d/%d",buyuk.yil,buyuk.ay,buyuk.gun);
+    return 0;
+}
