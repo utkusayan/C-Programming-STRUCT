@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+/*Tamsayi saat,dakika,saniye uyelerini barindiran struct zaman turundeki bir degiskenin
+degerini bir saniye arttiran birSnArttir adindaki fonksiyonu yaziniz.Kendisine gonderilen
+zaman degeri 21:58:32 oldugunda,donusecegi deger 21:58:33 olmalidir*/
+struct zaman{
+    int saat;
+    int dakika;
+    int saniye;
+};
+void birSnArttir(struct zaman *);
+int main()
+{
+    struct zaman z1;
+    printf("Zamani giriniz             : ");
+    scanf("%d %d %d",&z1.saat,&z1.dakika,&z1.saniye);
+    birSnArttir(&z1);
+    printf("Bir saniye arttirilmis hali: %.2d:%.2d:%.2d",z1.saat,z1.dakika,z1.saniye);
+    return 0;
+}
+
+void birSnArttir(struct zaman *ptr){
+    ptr->saniye=ptr->saniye+1;
+    if(ptr->saniye >= 60){
+        ptr->saniye=0;
+        ptr->dakika=ptr->dakika+1;
+        if(ptr->dakika >= 60){
+            ptr->dakika=0;
+            ptr->saat=(ptr->saat+1)%24;
+        }
+
+    }
+
+}
