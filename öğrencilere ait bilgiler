@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+struct ogrenci{   //Ogrenci:ad soyad ogrNo kayitYili TCkimlik
+    char ad[20];
+    char soyad[20];
+    int ogrenci_no;
+    int kayit_yili;
+    char TC_Kimlik[12];
+};
+int main()
+{
+    struct ogrenci liste[100];
+    strcpy(liste[0].ad,"utku");
+    strcpy(liste[0].soyad,"sayan");
+    liste[0].ogrenci_no=170201026;
+    liste[0].kayit_yili=2017;
+    strcpy(liste[0].TC_Kimlik,"30745721076");
+
+    printf("Ogrenci Bilgileri\n--------------------\n");
+    printf("Ad                 :%s\n",liste[0].ad);
+    printf("Soyad              :%s\n",liste[0].soyad);
+    printf("ogrenci numarasi   :%d\n",liste[0].ogrenci_no);
+    printf("Kayit yili         :%d\n",liste[0].kayit_yili);
+    printf("TC kimlik numarasi :%s\n",liste[0].TC_Kimlik);
+
+    return 0;
+}
