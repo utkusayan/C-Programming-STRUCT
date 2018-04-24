@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+struct zaman{
+    int saat;
+    int dakika;
+    int saniye;
+
+};
+int main()
+{
+    //baslangýc degeri atama
+    struct zaman z3={17,19,25};
+    //degerlerin kullanimi
+    printf("zaman z3:%d:%d:%d\n",z3.saat,z3.dakika,z3.saniye);
+
+    struct zaman z4={17};
+    printf("zaman z4:%d:%.2d:%.2d\n",z4.saat,z4.dakika,z4.saniye);
+
+    struct zaman z5;
+    printf("zaman z5:%d:%.2d:%.2d\n",z5.saat,z5.dakika,z5.saniye);
+
+    struct zaman z1;
+    struct zaman z2;
+    //yapinin elemanlarina deger atama islemi
+    printf("Baslangýc zamanini girin:");
+    scanf("%d %d %d",&z1.saat,&z1.dakika,&z1.saniye);
+    printf("Bitis zamanini girin:");
+    scanf("%d %d %d",&z2.saat,&z2.dakika,&z2.saniye);
+    //sadece saat farki(dakika ve saniye farklarini göz ardi ederek)
+    int saat_farki=z2.saat-z1.saat;
+
+    printf("saat farki=%d\n",saat_farki);
+
+    return 0;
+}
