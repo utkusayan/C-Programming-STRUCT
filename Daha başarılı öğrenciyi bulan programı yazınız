@@ -1,0 +1,63 @@
+/*Icınde ogrencinin numara(dizgi),ortalama(ondalik),kredi toplami(tamsayi) ve giris yili(tamsayi) bilgilerini tutan
+ogrenci adindaki yapiyi(struct) tanimlayiniz.Kendisine gonderilen ogrenci turundeki iki degiskeni karsilastirarak daha basarili olan
+ogrenciyi geri donduren basariliBul adindaki fonksiyonu,degerlerin klavyeden girildigi sonucun ekrana yazdirildigi bir main fonksiyonu
+ile beraber yaziniz.Ortalamasi buyuk olan daha basarilidir.Ortalamalar ayni ise kredi toplami kucuk olan daha iyidir.Kredi toplamlari da
+ayni ise giris yili buyuk olan daha iyidir.Tum bu degerler ayni ise herhangi biri basarili kabul edilir.*/
+
+#include <stdio.h>
+#include <stdlib.h>
+struct ogrenci{
+    char numara[10];
+    float ortalama;
+    int kredi;
+    int yil;
+};
+int basariliBul(struct ogrenci *o1,struct ogrenci *o2){
+    if(o1->ortalama>o2->ortalama){
+        return 1;
+    }
+    if(o1->ortalama<o2->ortalama){
+        return -1;
+    }
+    if(o1->ortalama==o2->ortalama){
+        if(o1->kredi<o1->kredi){
+            return 1;
+        }
+        if(o1->kredi<o1->kredi){
+            return -1;
+        }
+        if(o1->kredi==o1->kredi){
+            if(o1->yil>o1->yil){
+                return 1;
+            }
+            if(o1->yil<o1->yil){
+                return -1;
+            }
+            else
+                return 0;
+        }
+    }
+
+}
+int main()
+{
+    struct ogrenci o1;
+    struct ogrenci o2;
+    printf("Birincinin no,ortalama,kredi toplami ve giris yilini giriniz:");
+    scanf("%s %f %d %d",&o1.numara,&o1.ortalama,&o1.kredi,&o1.yil);
+    printf("Ikincinin no,ortalama,kredi toplami ve giris yilini giriniz:");
+    scanf("%s %f %d %d",&o2.numara,&o2.ortalama,&o2.kredi,&o2.yil);
+   
+    int sonuc;
+    sonuc=basariliBul(&o1,&o2);
+   
+    printf("\n");
+    if(sonuc==1){
+        printf("Daha basarili olan %s numarali(Ortalama:%f,kredi toplami:%d,yili:%d)",o1.numara,o1.ortalama,o1.kredi,o1.yil);
+    }
+    if(sonuc==-1)
+        printf("Daha basarili olan %s numarali(Ortalama:%d,kredi toplami:%d,yili:%d)",o2.numara,o2.ortalama,o2.kredi,o2.yil);
+
+
+    return 0;
+}
